@@ -1,7 +1,7 @@
 import { ILowCodePluginContext } from '@alilc/lowcode-engine';
 import { Button } from '@alifd/next';
 import {
-  saveSchema,
+  saveSchema2Oss,
   resetSchema,
 } from '../../services/mockService';
 
@@ -20,8 +20,8 @@ const SaveSamplePlugin = (ctx: ILowCodePluginContext) => {
           align: 'right',
         },
         content: (
-          <Button onClick={() => saveSchema(scenarioName)}>
-            保存到本地
+          <Button onClick={() => saveSchema2Oss()}>
+            保存
           </Button>
         ),
       });
@@ -40,7 +40,7 @@ const SaveSamplePlugin = (ctx: ILowCodePluginContext) => {
       });
       hotkey.bind('command+s', (e) => {
         e.preventDefault();
-        saveSchema(scenarioName);
+        saveSchema2Oss(scenarioName);
       });
     },
   };

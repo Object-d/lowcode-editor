@@ -1,7 +1,6 @@
 node_modules/
 build/
 es/
-lib/
 .idea/
 .vscode/
 jsconfig.json
