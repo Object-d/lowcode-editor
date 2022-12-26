@@ -40,3 +40,4 @@ Thumbs.db
 .lock
 package-lock.json
 .vdev
+.env

@@ -1,8 +1,8 @@
-export const ossHost = process.env.REACT_APP_OSS_HOST;
+export const ossHost = process.env.OSS_HOST;
 
 export const getOssParams = () => {
-  const accessid = process.env.REACT_APP_OSS_ACCESSID;
-  const accesskey = process.env.REACT_APP_OSS_ACCESSKEY;
+  const accessid = process.env.OSS_ACCESSID;
+  const accesskey = process.env.OSS_ACCESSKEY;
 
   const policyText = {
     expiration: '2023-01-01T12:00:00.000Z', //设置该Policy的失效时间，超过这个失效时间之后，就没有办法通过这个policy上传文件了

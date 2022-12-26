@@ -1,6 +1,8 @@
 const fs = require('fs-extra');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+require('dotenv').config()
 
 const { version } = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
@@ -42,6 +44,12 @@ module.exports = ({ onGetWebpackConfig }) => {
           filename: 'preview.html',
         },
       ]);
+
+    config
+      .plugin('define-plugin')
+      .use(webpack.DefinePlugin, [{
+        'process.env': JSON.stringify(process.env)
+      }])
 
     config.plugins.delete('hot');
     config.devServer.hot(false);

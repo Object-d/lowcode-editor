@@ -1,16 +1,12 @@
 import { ILowCodePluginContext } from '@alilc/lowcode-engine';
 import { Button } from '@alifd/next';
-import {
-  saveSchema2Oss,
-  resetSchema,
-} from '../../services/mockService';
+import { saveSchema2Oss } from 'src/services/service';
 
 // 保存功能示例
 const SaveSamplePlugin = (ctx: ILowCodePluginContext) => {
   return {
     async init() {
-      const { skeleton, hotkey, config } = ctx;
-      const scenarioName = config.get('scenarioName');
+      const { skeleton, hotkey } = ctx;
 
       skeleton.add({
         name: 'saveSample',
@@ -25,22 +21,9 @@ const SaveSamplePlugin = (ctx: ILowCodePluginContext) => {
           </Button>
         ),
       });
-      skeleton.add({
-        name: 'resetSchema',
-        area: 'topArea',
-        type: 'Widget',
-        props: {
-          align: 'right',
-        },
-        content: (
-          <Button onClick={() => resetSchema(scenarioName)}>
-            重置页面
-          </Button>
-        ),
-      });
       hotkey.bind('command+s', (e) => {
         e.preventDefault();
-        saveSchema2Oss(scenarioName);
+        saveSchema2Oss();
       });
     },
   };
